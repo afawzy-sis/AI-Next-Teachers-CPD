@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI NEXT Teacher Professional Development Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#EC4899',
+                        accent: '#10B981',
+                        dark: '#0F172A',
+                        light: '#F8FAFC'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+            scroll-behavior: smooth;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .hover-lift {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .interactive-element:active {
+            transform: scale(0.97);
+        }
+        
+        /* Custom scrollbar for horizontal tab navigation */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden bg-pink-950 text-white pt-20 pb-28">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=2070" alt="AI Education Cover" class="w-full h-full object-cover opacity-25 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-r from-rose-950/95 via-pink-900/90 to-purple-950/95"></div>
+            <div class="absolute inset-0 hero-pattern"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-pink-500/20 border border-pink-400/30 text-pink-200 text-xs font-semibold uppercase tracking-widest mb-6">
+                <i class="fas fa-certificate text-yellow-300 mr-2"></i> Official 15-Hour PD Certificate Pathway
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                AI NEXT <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-yellow-300">Teacher Professional Development</span>
+            </h1>
+            <p class="mt-4 max-w-3xl text-lg md:text-xl mx-auto text-pink-100/90 font-light leading-relaxed">
+                Empowering Educators with 12 Hands-On AI & Interactive Pedagogy Workshops.
+            </p>
+
+            <!-- Instructor Badge -->
+            <div onclick="openFacilitatorModal()" class="mt-8 cursor-pointer hover:scale-105 transition-transform inline-flex items-center bg-white/10 rounded-full pr-6 pl-2 py-2 border border-pink-300/20 backdrop-blur-md shadow-xl group">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-bold text-lg mr-3 shadow-inner group-hover:rotate-12 transition-transform">
+                    AF
+                </div>
+                <div class="text-left">
+                    <p class="text-white font-bold text-lg leading-tight group-hover:text-yellow-300 transition-colors">Alaa Fawzy <i class="fas fa-external-link-alt text-[10px] ml-1 opacity-70"></i></p>
+                    <p class="text-pink-200 text-xs sm:text-sm mt-0.5">ICT Teacher & HOD, <span class="text-yellow-300 font-medium">SalahEldin International School</span></p>
+                </div>
+            </div>
+            
+            <!-- Key Program Metrics -->
+            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                <div class="flex items-center bg-white/10 px-5 py-4 rounded-xl backdrop-blur-md border border-white/15 hover:-translate-y-1 transition-transform">
+                    <i class="fas fa-chalkboard-teacher text-2xl text-yellow-300 mr-4"></i>
+                    <div class="text-left">
+                        <p class="text-xs text-pink-200 uppercase tracking-wider font-medium">Program Scope</p>
+                        <p class="font-bold text-base text-white">12 Workshops</p>
+                    </div>
+                </div>
+                <div class="flex items-center bg-white/10 px-5 py-4 rounded-xl backdrop-blur-md border border-white/15 hover:-translate-y-1 transition-transform">
+                    <i class="fas fa-stopwatch text-2xl text-emerald-300 mr-4"></i>
+                    <div class="text-left">
+                        <p class="text-xs text-pink-200 uppercase tracking-wider font-medium">Session Time</p>
+                        <p class="font-bold text-base text-white">75 Mins / Session</p>
+                    </div>
+                </div>
+                <div class="flex items-center bg-white/10 px-5 py-4 rounded-xl backdrop-blur-md border border-white/15 hover:-translate-y-1 transition-transform">
+                    <i class="fas fa-certificate text-2xl text-purple-300 mr-4"></i>
+                    <div class="text-left">
+                        <p class="text-xs text-pink-200 uppercase tracking-wider font-medium">Total Credit</p>
+                        <p class="font-bold text-base text-white">15 Hours Total</p>
+                    </div>
+                </div>
+                <div class="flex items-center bg-white/10 px-5 py-4 rounded-xl backdrop-blur-md border border-white/15 hover:-translate-y-1 transition-transform">
+                    <i class="fas fa-film text-2xl text-pink-300 mr-4"></i>
+                    <div class="text-left">
+                        <p class="text-xs text-pink-200 uppercase tracking-wider font-medium">Capstone</p>
+                        <p class="font-bold text-base text-white">Short Movie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Curve -->
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto text-light">
+                <path d="M0 80L60 70C120 60 240 40 360 30C480 20 600 20 720 28C840 36 960 52 1080 56C1200 60 1320 52 1380 48L1440 44V80H0Z" fill="currentColor"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Framework Section -->
+    <section class="py-12 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-dark mb-3">5-Stage Interactive Learning Framework</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-6">
+                <div class="flex flex-col items-center group w-32">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-primary text-xl mb-2 border border-slate-200 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <span class="font-semibold text-gray-800 text-xs text-center">1. Pedagogy Need</span>
+                </div>
+                
+                <i class="fas fa-chevron-right text-gray-300 hidden md:block"></i>
+                
+                <div class="flex flex-col items-center group w-32">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-secondary text-xl mb-2 border border-slate-200 group-hover:bg-secondary group-hover:text-white transition-all">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <span class="font-semibold text-gray-800 text-xs text-center">2. AI Tool Mastery</span>
+                </div>
+
+                <i class="fas fa-chevron-right text-gray-300 hidden md:block"></i>
+
+                <div class="flex flex-col items-center group w-32">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-accent text-xl mb-2 border border-slate-200 group-hover:bg-accent group-hover:text-white transition-all">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <span class="font-semibold text-gray-800 text-xs text-center">3. Design & Craft</span>
+                </div>
+
+                <i class="fas fa-chevron-right text-gray-300 hidden md:block"></i>
+
+                <div class="flex flex-col items-center group w-32">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-amber-500 text-xl mb-2 border border-slate-200 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <span class="font-semibold text-gray-800 text-xs text-center">4. Live Practice</span>
+                </div>
+
+                <i class="fas fa-chevron-right text-gray-300 hidden md:block"></i>
+
+                <div class="flex flex-col items-center group w-32">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-purple-600 text-xl mb-2 border border-slate-200 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <span class="font-semibold text-gray-800 text-xs text-center">5. Classroom Deploy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="py-16 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-indigo-600 text-xs font-bold tracking-widest uppercase bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">15-Hour Professional Curriculum</span>
+                <h2 class="text-3xl font-extrabold text-dark mt-2 mb-3">12 Interactive Workshop Modules</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">Each of the 12 workshops is structured for exactly 1 Hour & 15 Minutes (75 Mins), resulting in a complete <strong>15-Hour Professional Development</strong> certification track.</p>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                <button onclick="filterCategory('all')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-dark text-white shadow-sm border border-dark transition-all">All 12 Sessions</button>
+                <button onclick="filterCategory('core')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200 transition-all">AI Prep & Differentiation</button>
+                <button onclick="filterCategory('gamification')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200 transition-all">Gamification & Play</button>
+                <button onclick="filterCategory('interactive')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200 transition-all">Interactive Lessons & STEM</button>
+                <button onclick="filterCategory('capstone')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200 transition-all">Capstone Video Production</button>
+            </div>
+
+            <!-- Scrollable Tab Bar for 12 Sessions -->
+            <div class="flex overflow-x-auto no-scrollbar gap-2 mb-10 pb-2 px-1 max-w-5xl mx-auto border-b border-gray-100" role="tablist">
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-primary text-white" data-category="core" data-target="session1" onclick="switchTab(this, 'session1')">S1: Idea & Design</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="core" data-target="session2" onclick="switchTab(this, 'session2')">S2: NotebookLM</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="core" data-target="session3" onclick="switchTab(this, 'session3')">S3: Brisk Teaching</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="gamification" data-target="session4" onclick="switchTab(this, 'session4')">S4: Gamification I (Quizalize)</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="gamification" data-target="session5" onclick="switchTab(this, 'session5')">S5: Gamification II (Fedu AI)</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="interactive" data-target="session6" onclick="switchTab(this, 'session6')">S6: Curipod & LessonUp</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="interactive" data-target="session7" onclick="switchTab(this, 'session7')">S7: Nearpod & Edpuzzle</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="interactive" data-target="session8" onclick="switchTab(this, 'session8')">S8: ClassPoint Live</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="interactive" data-target="session9" onclick="switchTab(this, 'session9')">S9: STEM & Science Labs</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="capstone" data-target="session10" onclick="switchTab(this, 'session10')">S10: Story & Voice Synthesis</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200" data-category="capstone" data-target="session11" onclick="switchTab(this, 'session11')">S11: CapCut Masterclass</button>
+                <button class="tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-gradient-to-r from-purple-600 to-pink-600 text-white" data-category="capstone" data-target="session12" onclick="switchTab(this, 'session12')">S12: WOW Showcase</button>
+            </div>
+
+            <!-- Tab Content Display Area -->
+            <div class="relative min-h-[480px]">
+                
+                <!-- Session 1 -->
+                <div id="session1" class="tab-content active glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-primary">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-indigo-50/50 p-6 rounded-xl border border-indigo-100">
+                            <span class="px-3 py-1 bg-primary text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-3">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">From Idea to Design</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Brainstorming & AI Presentation Decks</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-2.5 py-1 bg-green-100 text-green-700 text-xs rounded-lg font-medium">ChatGPT</span>
+                                <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs rounded-lg font-medium">Google Gemini</span>
+                                <span class="px-2.5 py-1 bg-purple-100 text-purple-700 text-xs rounded-lg font-medium">Claude AI</span>
+                                <span class="px-2.5 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-lg font-medium">Kimi AI</span>
+                                <span class="px-2.5 py-1 bg-rose-100 text-rose-700 text-xs rounded-lg font-medium">Chat.z.ai</span>
+                                <span class="px-2.5 py-1 bg-teal-100 text-teal-700 text-xs rounded-lg font-medium">Canva AI</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-primary flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Master prompt engineering and model selection across Claude AI, Kimi AI, Chat.z.ai, ChatGPT, and Gemini to generate comprehensive unit outlines and structured slide presentations. Auto-convert text outlines into visually captivating slide decks with Canva Magic Studio.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Build custom presentation prompts using Kimi AI and Chat.z.ai for deep contextual structuring, synthesize lesson plans with Claude AI, and render presentation slides and printable student worksheets in Canva.</p>
+                            </div>
+                            <div class="bg-indigo-50/60 p-4 rounded-xl border-l-4 border-primary">
+                                <h4 class="text-xs font-extrabold text-indigo-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">A complete 10-slide interactive presentation deck generated via multi-model AI workflows, complete with an aligned student worksheet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 2 -->
+                <div id="session2" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-indigo-600">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-indigo-50/50 p-6 rounded-xl border border-indigo-100">
+                            <span class="px-3 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-3xl mb-3">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">NotebookLM Mastery</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Deep Curriculum Synthesis & Research</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-lg font-bold">NotebookLM (Focused)</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-indigo-700 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Harness Google's NotebookLM as a grounded AI research partner. Learn to synthesize complex textbooks, curriculum standards, and PDF documents into trusted study guides and audio discussions without hallucinations.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Upload subject curriculum guides and PDF chapters into NotebookLM. Generate citation-backed study notes, custom Q&A keys, and auto-generate an AI Audio Overview podcast summarizing key unit topics.</p>
+                            </div>
+                            <div class="bg-indigo-50/60 p-4 rounded-xl border-l-4 border-indigo-600">
+                                <h4 class="text-xs font-extrabold text-indigo-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">An interactive Source Notebook containing verified unit briefing docs, student study guides, and an AI-generated Audio Overview podcast episode.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 3 -->
+                <div id="session3" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-orange-500">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-orange-50/50 p-6 rounded-xl border border-orange-100">
+                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600 text-3xl mb-3">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">Brisk Teaching</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Instant Differentiated Pedagogy</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs rounded-lg font-bold">Brisk Teaching (Focused)</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-orange-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Streamline teacher workflow with Brisk Teaching chrome extension. Learn to instantly adjust reading Lexile levels, generate rubrics, create Google Forms quizzes, and provide targeted feedback directly inside Google Docs and web articles.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Take any online article or complex lesson text, use Brisk to re-level it into 3 reading tiers (beginner, grade-level, advanced), auto-generate a 5-question comprehension quiz, and craft targeted student feedback templates.</p>
+                            </div>
+                            <div class="bg-orange-50/60 p-4 rounded-xl border-l-4 border-orange-500">
+                                <h4 class="text-xs font-extrabold text-orange-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">A complete differentiated reading kit (3 Lexile levels) with an automated assessment quiz and grading rubric in Google Docs/Forms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 4 -->
+                <div id="session4" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-emerald-500">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-emerald-50/50 p-6 rounded-xl border border-emerald-100">
+                            <span class="px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 text-3xl mb-3">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">Gamification I</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Quizalize Diagnostic Gaming</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-2 py-0.5 bg-emerald-600 text-white text-xs rounded font-bold">Quizalize (Star App)</span>
+                                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs rounded font-medium">Quiz</span>
+                                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs rounded font-medium">Eduplay</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-emerald-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Leverage Quizalize AI as the centerpiece app to transform routine assessments into engaging team battles and track learning gaps through real-time diagnostic mastery dashboards.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Build AI-generated question banks in Quizalize, attach adaptive remediation resources for struggling students, and set up live classroom game modes alongside supplementary quiz tools.</p>
+                            </div>
+                            <div class="bg-emerald-50/60 p-4 rounded-xl border-l-4 border-emerald-500">
+                                <h4 class="text-xs font-extrabold text-emerald-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">An active Quizalize Game Session equipped with automated adaptive pathways for student remediation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 5 -->
+                <div id="session5" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-pink-500">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-pink-50/50 p-6 rounded-xl border border-pink-100">
+                            <span class="px-3 py-1 bg-pink-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center text-pink-600 text-3xl mb-3">
+                                <i class="fas fa-chess-knight"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">Gamification II</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Fedu AI & Interactive Play</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-2 py-0.5 bg-pink-600 text-white text-xs rounded font-bold">Fedu AI (Star App)</span>
+                                <span class="px-2 py-0.5 bg-pink-100 text-pink-800 text-xs rounded font-medium">Academoo</span>
+                                <span class="px-2 py-0.5 bg-pink-100 text-pink-800 text-xs rounded font-medium">Educandy</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-4">
+                            <div>
+                                <h4 class="text-md font-bold text-pink-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Master Fedu AI to generate immersive educational challenges, while integrating Academoo and Educandy for vocabulary games and playful formative activities.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Construct a Fedu AI game suite and explore the extended Gamification & STEM Toolkit for specialized subject practice.</p>
+                            </div>
+                            
+                            <!-- Extended Gamification & Science Toolkit Box -->
+                            <div class="bg-gray-50 p-3.5 rounded-xl border border-gray-200">
+                                <h5 class="text-xs font-bold text-gray-800 mb-2 flex items-center"><i class="fas fa-cubes text-pink-500 mr-1.5"></i> Expanded Gamification & STEM Toolkit Showcase:</h5>
+                                <div class="flex flex-wrap gap-1.5 text-[11px]">
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Blooket</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Gimkit</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">LearningApps</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Flippity</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Wayground</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Kahoot</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Bamboozle</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">PinkCatGames</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Toy Theater</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Conker AI</span>
+                                    <span class="px-2 py-0.5 bg-white border text-gray-700 rounded font-medium">Ingez</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-pink-50/60 p-3.5 rounded-xl border-l-4 border-pink-500">
+                                <h4 class="text-xs font-extrabold text-pink-900 flex items-center mb-0.5 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-xs font-semibold">A Fedu AI Interactive Game module alongside a curated menu of quick-fire icebreaker games.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 6 -->
+                <div id="session6" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-purple-500">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-purple-50/50 p-6 rounded-xl border border-purple-100">
+                            <span class="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center text-purple-600 text-3xl mb-3">
+                                <i class="fas fa-chalkboard"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">Interactive Lessons I</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Curipod & LessonUp</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-xs rounded-lg font-bold">Curipod</span>
+                                <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-xs rounded-lg font-bold">LessonUp</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-purple-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Auto-generate interactive slide decks in seconds using Curipod and build multi-media lessons with LessonUp that incorporate live student drawings, open-ended reflections, and poll check-ins.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Prompt Curipod to generate an interactive lesson on a target learning topic, customize drawing prompts and word clouds, and format the lesson in LessonUp for dual web and mobile delivery.</p>
+                            </div>
+                            <div class="bg-purple-50/60 p-4 rounded-xl border-l-4 border-purple-500">
+                                <h4 class="text-xs font-extrabold text-purple-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">An interactive 8-slide Curipod/LessonUp lesson ready for live student engagement with built-in reflection breaks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 7 -->
+                <div id="session7" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-cyan-500">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-cyan-50/50 p-6 rounded-xl border border-cyan-100">
+                            <span class="px-3 py-1 bg-cyan-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-cyan-100 flex items-center justify-center text-cyan-600 text-3xl mb-3">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">Interactive Lessons II</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Nearpod & Edpuzzle</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-2.5 py-1 bg-cyan-100 text-cyan-800 text-xs rounded-lg font-bold">Nearpod</span>
+                                <span class="px-2.5 py-1 bg-cyan-100 text-cyan-800 text-xs rounded-lg font-bold">Edpuzzle</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-cyan-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Transform passive video viewing into active learning with Edpuzzle and structure synchronized interactive classroom presentations using Nearpod's rich activity suite.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Clip educational video clips, embed targeted check-in questions and voice notes in Edpuzzle, and embed the video inside a comprehensive Nearpod lesson deck with Time to Climb games.</p>
+                            </div>
+                            <div class="bg-cyan-50/60 p-4 rounded-xl border-l-4 border-cyan-500">
+                                <h4 class="text-xs font-extrabold text-cyan-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">An interactive Edpuzzle video module embedded inside a student-paced Nearpod lesson deck.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 8 -->
+                <div id="session8" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-blue-500">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-blue-50/50 p-6 rounded-xl border border-blue-100">
+                            <span class="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-600 text-3xl mb-3">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">ClassPoint Live</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Live PowerPoint Engagement</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg font-bold">ClassPoint (PowerPoint)</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-blue-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Turn standard Microsoft PowerPoint presentations into dynamic direct-response experiences with ClassPoint's AI question generator, live gamification, and digital whiteboard tools.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Integrate ClassPoint into existing PowerPoint slides, add interactive short-answer, image upload, and word cloud prompts, and test real-time leaderboards.</p>
+                            </div>
+                            <div class="bg-blue-50/60 p-4 rounded-xl border-l-4 border-blue-500">
+                                <h4 class="text-xs font-extrabold text-blue-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">An interactive 6-slide PowerPoint deck enhanced with ClassPoint live response activities and award stars.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 9 -->
+                <div id="session9" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-teal-500">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-teal-50/50 p-6 rounded-xl border border-teal-100">
+                            <span class="px-3 py-1 bg-teal-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-600 text-3xl mb-3">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">STEM & Science Labs</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Virtual Simulations & Interactive Science</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-2.5 py-1 bg-teal-600 text-white text-xs rounded-lg font-bold">Mozaweb</span>
+                                <span class="px-2.5 py-1 bg-teal-600 text-white text-xs rounded-lg font-bold">LabXchange</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-teal-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Explore specialized scientific simulations and virtual lab environments using Mozaweb 3D models and Harvard's LabXchange platform to bring complex abstract concepts to life.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Navigate Mozaweb 3D interactive scenes, assemble a virtual lab pathway on LabXchange with embedded assessments, and design a guided inquiry worksheet for STEM/Science topics.</p>
+                            </div>
+                            <div class="bg-teal-50/60 p-4 rounded-xl border-l-4 border-teal-500">
+                                <h4 class="text-xs font-extrabold text-teal-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">A complete virtual science lab activity guide linking 3D interactive simulations with student inquiry tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 10 -->
+                <div id="session10" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-amber-500">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-amber-50/50 p-6 rounded-xl border border-amber-100">
+                            <span class="px-3 py-1 bg-amber-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-600 text-3xl mb-3">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">Capstone Prep</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Script, Flow Visuals & AI Voice</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-2.5 py-1 bg-amber-100 text-amber-800 text-xs rounded-lg font-bold">ChatGPT Scripting</span>
+                                <span class="px-2.5 py-1 bg-amber-600 text-white text-xs rounded-lg font-bold">Flow AI Image Gen</span>
+                                <span class="px-2.5 py-1 bg-amber-100 text-amber-800 text-xs rounded-lg font-bold">AI Voice Generator</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-amber-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Kickstart the Capstone project ("The WOW Lesson") by scripting an engaging 1-to-2 minute educational story, generating ultra-clear visual scenes using <strong>Flow AI Image Generator</strong>, and synthesizing expressive voiceover audio.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Develop a two-character educational narrative using ChatGPT, prompt <strong>Flow AI</strong> to create consistent character illustrations and scene backgrounds, and synthesize dialogues into natural AI voice audio files.</p>
+                            </div>
+                            <div class="bg-amber-50/60 p-4 rounded-xl border-l-4 border-amber-500">
+                                <h4 class="text-xs font-extrabold text-amber-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">A complete animated short script, Flow AI scene storyboard art, and multi-voice synthesized audio asset collection.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 11 -->
+                <div id="session11" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl border-t-4 border-t-violet-600">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-violet-50/50 p-6 rounded-xl border border-violet-100">
+                            <span class="px-3 py-1 bg-violet-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-600 text-3xl mb-3">
+                                <i class="fas fa-photo-video"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-center text-dark mb-1">CapCut & AI Video Suite</h3>
+                            <p class="text-xs text-center text-gray-500 mb-4">Editing, Orchestration & Animation</p>
+                            <div class="flex gap-1.5 justify-center flex-wrap">
+                                <span class="px-2.5 py-1 bg-black text-white text-xs rounded-lg font-bold">CapCut Pro</span>
+                                <span class="px-2.5 py-1 bg-violet-100 text-violet-800 text-xs rounded-lg font-bold">Flow</span>
+                                <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-xs rounded-lg font-bold">Qwen AI</span>
+                                <span class="px-2.5 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-lg font-bold">LMArena</span>
+                                <span class="px-2.5 py-1 bg-fuchsia-100 text-fuchsia-800 text-xs rounded-lg font-bold">Pixverse</span>
+                                <span class="px-2.5 py-1 bg-pink-100 text-pink-800 text-xs rounded-lg font-bold">Symphony</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-5">
+                            <div>
+                                <h4 class="text-md font-bold text-violet-600 flex items-center mb-1.5"><i class="fas fa-bullseye mr-2"></i> Session Objective</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Master advanced video assembly and multi-tool AI workflows. Evaluate and benchmark models using <strong>LMArena</strong>, refine scripts with <strong>Qwen AI</strong>, integrate <strong>Flow</strong> visual assets, animate dynamic scenes using <strong>Pixverse</strong>, and utilize <strong>TikTok Symphony AI</strong> audio/video features before finalizing timeline edits in CapCut Pro.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-secondary flex items-center mb-1.5"><i class="fas fa-hammer mr-2"></i> Hands-On Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Use LMArena to compare Qwen model outputs for narrative depth, animate Flow visual assets into motion clips using Pixverse, apply Symphony AI for smart audio/avatar synchronization, and import all assets into the CapCut timeline to apply keyframe motion effects and auto-generate styled captions.</p>
+                            </div>
+                            <div class="bg-violet-50/60 p-4 rounded-xl border-l-4 border-violet-600">
+                                <h4 class="text-xs font-extrabold text-violet-900 flex items-center mb-1 uppercase tracking-wider"><i class="fas fa-trophy text-yellow-500 mr-2"></i> Deliverable Output</h4>
+                                <p class="text-gray-800 text-sm font-semibold">A fully rendered draft of your animated educational movie built using the combined power of LMArena, Qwen, Flow, Pixverse, Symphony, and CapCut.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 12 -->
+                <div id="session12" class="tab-content glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-2xl border-t-4 border-t-pink-600 bg-gradient-to-br from-white via-purple-50/30 to-pink-50/40">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col justify-center items-center bg-white p-6 rounded-xl border border-purple-100 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-yellow-400 text-[10px] font-black px-2 py-0.5 rounded-bl-lg text-dark">SHOWCASE</div>
+                            <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-bold rounded-full mb-3">1 Hr 15 Mins</span>
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white text-3xl mb-3 shadow-lg animate-pulse">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="text-xl font-extrabold text-center text-dark mb-0.5">The WOW Lesson!</h3>
+                            <p class="text-xs text-center text-purple-700 font-bold mb-3">Capstone Movie Exhibition</p>
+                            <div class="flex gap-1 justify-center flex-wrap">
+                                <span class="px-3 py-1 bg-black text-white text-xs rounded-full font-bold shadow">CapCut Final Output</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 space-y-4">
+                            <div>
+                                <h4 class="text-md font-bold text-purple-700 flex items-center mb-1"><i class="fas fa-bullseye mr-2"></i> Objective & Grand Exhibition</h4>
+                                <p class="text-gray-800 text-sm leading-relaxed font-medium">Finalize, polish, and premiere your 1-to-2 minute Animated Educational Short Movie during our peer showcase and evaluation session.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-bold text-pink-600 flex items-center mb-1"><i class="fas fa-hammer mr-2"></i> Showcase Activity</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed">Present your animated short film to fellow educators, receive feedback against pedagogical evaluation criteria, and publish the video to your school's digital classroom library.</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-4.5 rounded-xl border-l-4 border-yellow-400 shadow-lg">
+                                <h4 class="text-xs font-bold flex items-center mb-1 uppercase tracking-wider text-yellow-300"><i class="fas fa-film mr-2"></i> Graduation Capstone Deliverable</h4>
+                                <p class="font-extrabold text-base text-white leading-snug">"THE WOW LESSON" ANIMATED MOVIE</p>
+                                <p class="text-purple-200 text-xs mt-1">A published 1-2 minute Animated Short Movie featuring AI voice narration, sound effects, animated visual scenes, auto-captions, and full pedagogical alignment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Knowledge Check Section -->
+    <section class="py-16 bg-dark text-white relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-4 relative z-10 text-center">
+            <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">Tricky Scenario-Based Assessment</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-3 mb-2">Program Knowledge Check</h2>
+            <p class="text-gray-400 text-xs sm:text-sm mb-6">Test your tool selection precision across all 12 modules with these tricky real-world scenarios.</p>
+            
+            <div class="bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10 shadow-2xl text-left" id="quiz-container">
+                <div class="flex justify-between items-center mb-4 text-xs font-semibold text-pink-300 border-b border-white/10 pb-3">
+                    <span id="quiz-progress">Question 1 of 3</span>
+                    <span id="quiz-score-badge" class="bg-pink-500/20 px-2.5 py-1 rounded-full border border-pink-400/30">Score: <span id="quiz-score">0</span>/3</span>
+                </div>
+
+                <div id="quiz-question" class="text-base sm:text-lg font-medium mb-6 text-gray-100 leading-snug">
+                    <!-- Loaded dynamically -->
+                </div>
+                
+                <div class="grid grid-cols-1 gap-3" id="quiz-options">
+                    <!-- Options loaded dynamically -->
+                </div>
+                
+                <div id="quiz-feedback" class="mt-6 hidden p-4 rounded-xl text-xs sm:text-sm font-medium"></div>
+                
+                <div class="mt-6 flex justify-between items-center">
+                    <button id="prev-btn" class="hidden px-4 py-2 bg-white/10 hover:bg-white/20 text-xs font-semibold rounded-lg text-gray-200 transition-all" onclick="prevQuestion()">
+                        <i class="fas fa-arrow-left mr-1.5"></i> Previous
+                    </button>
+                    <button id="next-btn" class="hidden ml-auto px-5 py-2 bg-pink-600 hover:bg-pink-500 text-xs font-bold rounded-lg text-white shadow-lg transition-all" onclick="nextQuestion()">
+                        Next Question <i class="fas fa-arrow-right ml-1.5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-gray-400 py-10 text-center border-t border-slate-800">
+        <div onclick="openFacilitatorModal()" class="mb-4 flex flex-col items-center justify-center cursor-pointer group inline-flex mx-auto">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-600 to-pink-600 flex items-center justify-center text-white font-bold text-lg mb-2 shadow-inner border border-white/20 group-hover:scale-110 transition-transform">
+                AF
+            </div>
+            <p class="text-xl font-bold text-gray-100 tracking-wide group-hover:text-pink-400 transition-colors">Alaa Fawzy <i class="fas fa-external-link-alt text-xs ml-1 opacity-70"></i></p>
+            <p class="text-xs text-indigo-400 mt-0.5 font-medium">ICT Teacher and HOD</p>
+            <p class="text-xs text-gray-500">SalahEldin International School</p>
+        </div>
+        <div class="h-px w-20 bg-slate-800 mx-auto mb-4"></div>
+        <p class="text-xs text-gray-500">&copy; 2026 AI NEXT Teacher Professional Development Program • 15 Hours (12 Sessions x 1.25 Hrs)</p>
+    </footer>
+
+    <!-- Facilitator Modal CV -->
+    <div id="facilitatorModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeFacilitatorModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-white rounded-3xl shadow-2xl w-[95%] max-w-2xl max-h-[90vh] overflow-hidden flex flex-col transform transition-all duration-300 scale-95 opacity-0" id="modalCard">
+            <!-- Close Button -->
+            <button onclick="closeFacilitatorModal()" class="absolute top-4 right-4 z-10 text-white/80 hover:text-white bg-black/20 hover:bg-black/40 rounded-full w-8 h-8 flex items-center justify-center transition-colors backdrop-blur-md">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <!-- Header -->
+            <div class="bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-700 p-8 text-center relative shrink-0">
+                <div class="absolute inset-0 hero-pattern opacity-30"></div>
+                <div class="relative z-10">
+                    <div class="w-24 h-24 mx-auto rounded-full bg-white flex items-center justify-center text-transparent bg-clip-text bg-gradient-to-br from-pink-500 to-purple-600 font-black text-4xl mb-4 shadow-xl border-4 border-white/20">
+                        AF
+                    </div>
+                    <h2 class="text-pink-200 text-xs font-black tracking-[0.2em] uppercase mb-1 drop-shadow-md">Meet Your CPD Facilitator</h2>
+                    <h3 class="text-white text-3xl font-extrabold tracking-tight">Alaa Fawzy</h3>
+                    <p class="text-white/80 mt-1 font-medium text-sm">ICT Teacher & Head of Department</p>
+                </div>
+            </div>
+            
+            <!-- Body -->
+            <div class="p-6 sm:p-8 overflow-y-auto">
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 border-b pb-2 flex items-center"><i class="fas fa-award text-yellow-500 mr-2 text-lg"></i> Certifications & Credentials</h4>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start bg-slate-50 p-3 rounded-xl border border-slate-100 hover:border-pink-200 transition-colors">
+                        <div class="mt-0.5 bg-gradient-to-br from-emerald-400 to-teal-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] shrink-0 mr-3 shadow-sm">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium text-sm">Gemini Certified Educator by Google for Education</span>
+                    </li>
+                    <li class="flex items-start bg-slate-50 p-3 rounded-xl border border-slate-100 hover:border-pink-200 transition-colors">
+                        <div class="mt-0.5 bg-gradient-to-br from-emerald-400 to-teal-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] shrink-0 mr-3 shadow-sm">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <span class="text-gray-700 font-medium text-sm block">One Million Prompters Certified Professional</span>
+                            <span class="text-xs text-gray-500 font-normal mt-0.5 block">by Dubai Future Foundation & Dubai Centre for AI</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start bg-slate-50 p-3 rounded-xl border border-slate-100 hover:border-pink-200 transition-colors">
+                        <div class="mt-0.5 bg-gradient-to-br from-emerald-400 to-teal-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] shrink-0 mr-3 shadow-sm">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium text-sm">Generative AI Diploma from Adobe Academy EGY</span>
+                    </li>
+                    <li class="flex items-start bg-slate-50 p-3 rounded-xl border border-slate-100 hover:border-pink-200 transition-colors">
+                        <div class="mt-0.5 bg-gradient-to-br from-emerald-400 to-teal-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] shrink-0 mr-3 shadow-sm">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium text-sm">Canva Essentials Certification</span>
+                    </li>
+                    <li class="flex items-start bg-slate-50 p-3 rounded-xl border border-slate-100 hover:border-pink-200 transition-colors">
+                        <div class="mt-0.5 bg-gradient-to-br from-emerald-400 to-teal-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] shrink-0 mr-3 shadow-sm">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium text-sm">Microsoft Elevate Educator Badge</span>
+                    </li>
+                    <li class="flex items-start bg-slate-50 p-3 rounded-xl border border-slate-100 hover:border-pink-200 transition-colors">
+                        <div class="mt-0.5 bg-gradient-to-br from-emerald-400 to-teal-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] shrink-0 mr-3 shadow-sm">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium text-sm block">Professional Microsoft Credentials <span class="text-gray-500 font-normal ml-1">including MCP, MCAD, MCSD, and ICDL</span></span>
+                    </li>
+                </ul>
+                
+                <div class="bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100">
+                    <h4 class="text-sm font-bold text-indigo-900 uppercase tracking-wider mb-2 flex items-center"><i class="fas fa-quote-left text-indigo-400 mr-2 opacity-50"></i> About Me</h4>
+                    <p class="text-gray-700 text-sm leading-relaxed font-medium">
+                        As a passionate ICT Educator and tech-integration specialist, I am dedicated to bridging the gap between traditional pedagogy and the future of educational technology. My mission through this PD program is to empower fellow teachers with practical, hands-on mastery of Generative AI and gamified learning tools. By leveraging my diverse background across Microsoft, Google, and specialized AI academies, I strive to make technology accessible, efficient, and deeply engaging—helping you transform your classroom into an innovative hub for modern learners.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openFacilitatorModal() {
+            const modal = document.getElementById('facilitatorModal');
+            const card = document.getElementById('modalCard');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Small delay to allow display:flex to apply before animating opacity/scale
+            setTimeout(() => {
+                card.classList.remove('scale-95', 'opacity-0');
+                card.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFacilitatorModal() {
+            const modal = document.getElementById('facilitatorModal');
+            const card = document.getElementById('modalCard');
+            card.classList.remove('scale-100', 'opacity-100');
+            card.classList.add('scale-95', 'opacity-0');
+            
+            // Wait for transition to finish before hiding element
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto'; // Restore body scroll
+            }, 300);
+        }
+
+        // Category Filter Logic
+        function filterCategory(category) {
+            const filterBtns = document.querySelectorAll('.cat-filter-btn');
+            filterBtns.forEach(btn => {
+                btn.className = 'cat-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200 transition-all';
+            });
+            event.target.className = 'cat-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-dark text-white shadow-sm border border-dark transition-all';
+
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            let firstVisible = null;
+
+            tabBtns.forEach(btn => {
+                if (category === 'all' || btn.dataset.category === category) {
+                    btn.style.display = 'inline-block';
+                    if (!firstVisible) firstVisible = btn;
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
+
+            if (firstVisible) {
+                switchTab(firstVisible, firstVisible.dataset.target);
+            }
+        }
+
+        // Tab Switching Logic for 12 Sessions
+        function switchTab(clickedBtn, targetId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = 'tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-white text-gray-600 hover:bg-gray-50 border border-gray-200';
+                
+                if (btn.dataset.target === 'session12' && targetId !== 'session12') {
+                    btn.className = 'tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-sm bg-gradient-to-r from-purple-500 to-pink-500 text-white opacity-80 hover:opacity-100';
+                }
+            });
+            
+            // Set active color based on target
+            if (targetId === 'session12') {
+                clickedBtn.className = 'tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-md bg-gradient-to-r from-purple-600 to-pink-600 text-white ring-2 ring-purple-300';
+            } else {
+                clickedBtn.className = 'tab-btn interactive-element px-4 py-2.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all shadow-md bg-primary text-white';
+            }
+
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            const activeContent = document.getElementById(targetId);
+            if (activeContent) activeContent.classList.add('active');
+        }
+
+        const quizQuestions = [
+            {
+                question: "<strong>Scenario 1:</strong> An ICT teacher wants to feed a 60-page curriculum PDF into an AI tool to generate a citation-backed study guide and an interactive dual-host audio podcast with <em>zero risk of external AI hallucinations</em>. Which tool is explicitly built for this grounded source-synthesis?",
+                options: [
+                    { text: "ChatGPT Plus (GPT-4o)", correct: false, explanation: "While ChatGPT reads files, it relies on broad training data and can synthesize external hallucinations beyond your strict document source." },
+                    { text: "Google NotebookLM", correct: true, explanation: "NotebookLM is strict source-grounded AI. It only draws citations directly from uploaded PDFs and features auto-generated Audio Overview podcast synthesis!" },
+                    { text: "Brisk Teaching", correct: false, explanation: "Brisk Teaching is designed for Chrome extension workflows like text re-leveling inside Google Docs, not deep source audio synthesis." },
+                    { text: "Curipod AI", correct: false, explanation: "Curipod generates interactive slide decks with live student polls, not grounded source notebooks." }
+                ]
+            },
+            {
+                question: "<strong>Scenario 2:</strong> You are presenting directly inside <em>Microsoft PowerPoint</em> and want students to answer live drawing and word-cloud questions on their mobile devices with real-time star rewards <strong>without leaving PowerPoint</strong>. Which tool is required?",
+                options: [
+                    { text: "Nearpod", correct: false, explanation: "Nearpod is a standalone web platform requiring its own browser delivery host." },
+                    { text: "ClassPoint Live", correct: true, explanation: "ClassPoint integrates natively into PowerPoint's slideshow mode for direct-response drawing, word clouds, and gamified star rewards!" },
+                    { text: "Quizalize", correct: false, explanation: "Quizalize is an external diagnostic gaming web app, not embedded inside native PowerPoint." },
+                    { text: "Edpuzzle", correct: false, explanation: "Edpuzzle is specialized for interactive video questions." }
+                ]
+            },
+            {
+                question: "<strong>Scenario 3:</strong> During Session 3 (Brisk Teaching), a teacher needs to adjust an online science article into 3 distinct reading levels (beginner, grade-level, advanced) and generate a 5-question comprehension check in 1 click. Which feature set makes Brisk unique?",
+                options: [
+                    { text: "3D virtual lab generation and molecular physics simulation", correct: false, explanation: "3D virtual simulations belong to Session 9 (Mozaweb & LabXchange)." },
+                    { text: "Instant Lexile re-leveling and Doc-integrated quiz generation", correct: true, explanation: "Brisk Teaching enables 1-click re-leveling of any web article or Google Doc into differentiated Lexile tiers with auto-generated Google Forms quizzes!" },
+                    { text: "Multi-character AI voice narration and timeline video editing", correct: false, explanation: "Voice synthesis and timeline editing belong to Sessions 10 & 11 (CapCut & AI Voice)." },
+                    { text: "Diagnostic team battles with real-time mastery heatmaps", correct: false, explanation: "Diagnostic team gaming is the core of Session 4 (Quizalize)." }
+                ]
+            }
+        ];
+
+        let currentQIndex = 0;
+        let score = 0;
+        let answeredQuestions = {};
+
+        function renderQuizQuestion() {
+            const q = quizQuestions[currentQIndex];
+            document.getElementById('quiz-progress').innerText = `Question ${currentQIndex + 1} of ${quizQuestions.length}`;
+            document.getElementById('quiz-score').innerText = score;
+            document.getElementById('quiz-question').innerHTML = q.question;
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            const feedbackEl = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+
+            if (currentQIndex > 0) {
+                prevBtn.classList.remove('hidden');
+            } else {
+                prevBtn.classList.add('hidden');
+            }
+
+            const isAnswered = answeredQuestions[currentQIndex] !== undefined;
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-btn w-full py-3 px-4 bg-white/5 hover:bg-white/15 border border-white/10 rounded-xl transition-all text-left text-xs sm:text-sm flex items-center justify-between text-gray-200';
+                btn.innerHTML = `<span>${opt.text}</span>`;
+                
+                if (isAnswered) {
+                    btn.style.pointerEvents = 'none';
+                    if (idx === answeredQuestions[currentQIndex]) {
+                        if (opt.correct) {
+                            btn.className += ' bg-emerald-900/60 border-emerald-500 text-emerald-200';
+                        } else {
+                            btn.className += ' bg-rose-900/60 border-rose-500 text-rose-200';
+                        }
+                    } else if (opt.correct) {
+                        btn.className += ' border-emerald-500/60 text-emerald-300';
+                    } else {
+                        btn.className += ' opacity-40';
+                    }
+                } else {
+                    btn.onclick = () => selectQuizAnswer(idx);
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            if (isAnswered) {
+                const selectedOpt = q.options[answeredQuestions[currentQIndex]];
+                feedbackEl.classList.remove('hidden');
+                if (selectedOpt.correct) {
+                    feedbackEl.className = 'mt-6 p-4 rounded-xl text-xs sm:text-sm font-medium bg-emerald-900/40 text-emerald-200 border border-emerald-500/40 block';
+                    feedbackEl.innerHTML = `<i class="fas fa-check-circle text-emerald-400 mr-2 text-base align-middle"></i> <strong>Spot On!</strong> ${selectedOpt.explanation}`;
+                } else {
+                    feedbackEl.className = 'mt-6 p-4 rounded-xl text-xs sm:text-sm font-medium bg-rose-900/40 text-rose-200 border border-rose-500/40 block';
+                    feedbackEl.innerHTML = `<i class="fas fa-times-circle text-rose-400 mr-2 text-base align-middle"></i> <strong>Not Quite.</strong> ${selectedOpt.explanation}`;
+                }
+                nextBtn.classList.remove('hidden');
+            } else {
+                feedbackEl.classList.add('hidden');
+                nextBtn.classList.add('hidden');
+            }
+        }
+
+        function selectQuizAnswer(optionIdx) {
+            if (answeredQuestions[currentQIndex] !== undefined) return;
+            
+            answeredQuestions[currentQIndex] = optionIdx;
+            if (quizQuestions[currentQIndex].options[optionIdx].correct) {
+                score++;
+            }
+            renderQuizQuestion();
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < quizQuestions.length - 1) {
+                currentQIndex++;
+                renderQuizQuestion();
+            } else {
+                // Quiz completed view
+                const container = document.getElementById('quiz-container');
+                container.innerHTML = `
+                    <div class="text-center py-6">
+                        <div class="w-16 h-16 rounded-full bg-pink-500/20 text-pink-400 border border-pink-400/30 flex items-center justify-center text-3xl mx-auto mb-4">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Quiz Completed!</h3>
+                        <p class="text-sm text-gray-300 mb-4">You scored <span class="text-yellow-400 font-bold">${score}</span> out of <span class="font-bold">${quizQuestions.length}</span> on the PD Tricky Scenario Assessment.</p>
+                        <p class="text-xs text-gray-400 max-w-md mx-auto mb-6">${score === 3 ? 'Mastery Level! You have a precise understanding of when and how to deploy each specific AI & Interactive tool in the curriculum.' : 'Good effort! Review the 12 workshop modules above to refine your tool deployment choices.'}</p>
+                        <button onclick="restartQuiz()" class="px-5 py-2.5 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold text-xs rounded-xl shadow-lg hover:opacity-90 transition-all">
+                            <i class="fas fa-redo mr-2"></i> Retake Tricky Assessment
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderQuizQuestion();
+            }
+        }
+
+        function restartQuiz() {
+            currentQIndex = 0;
+            score = 0;
+            answeredQuestions = {};
+            renderQuizQuestion();
+        }
+
+        // Initialize quiz on load
+        window.addEventListener('DOMContentLoaded', () => {
+            if (document.getElementById('quiz-question')) {
+                renderQuizQuestion();
+            }
+        });
+    </script>
+</body>
+</html>
